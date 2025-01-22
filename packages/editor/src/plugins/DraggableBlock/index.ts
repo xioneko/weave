@@ -1,9 +1,9 @@
 import type { EditorPlugin } from "#core/types.ts"
-import DraggableBlockPlugin from "./DraggableBlockPlugin.vue"
+import { defineAsyncComponent } from "vue"
 
 export * from "./DraggableBlockPlugin.vue"
 
 export default {
   id: "builtin:draggable-block",
-  component: DraggableBlockPlugin,
+  component: defineAsyncComponent(() => import("./DraggableBlockPlugin.vue")),
 } satisfies EditorPlugin

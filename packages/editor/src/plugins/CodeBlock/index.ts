@@ -1,12 +1,12 @@
 import type { EditorPlugin } from "#core/types.ts"
 import { $createCodeBlockNode, CodeBlockNode } from "./CodeBlockNode"
-import CodeBlockPlugin from "./CodeBlockPlugin.vue"
+import { defineAsyncComponent } from "vue"
 
 export { CodeBlockNode, $isCodeBlockNode, $createCodeBlockNode } from "./CodeBlockNode"
 
 export default {
   id: "builtin:code-block",
-  component: CodeBlockPlugin,
+  component: defineAsyncComponent(() => import("./CodeBlockPlugin.vue")),
   nodes: [CodeBlockNode],
   markdown: {
     tokenParserMap: {

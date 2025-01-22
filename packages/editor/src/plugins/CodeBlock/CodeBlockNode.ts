@@ -1,8 +1,7 @@
 import type { NodeMarkdownSerializer } from "#core/markdown"
 import { DecoratorBlockNode, type Decorator, type SerializedDecoratorBlockNode } from "#core/nodes"
-import CodeBlockDecorator, {
-  type CodeBlockDecoratorProps,
-} from "./components/CodeBlockDecorator.vue"
+import type CodeBlockDecorator from "./components/CodeBlockDecorator.vue"
+import type { CodeBlockDecoratorProps } from "./components/CodeBlockDecorator.vue"
 import {
   type DOMConversionMap,
   type DOMExportOutput,
@@ -13,7 +12,7 @@ import {
   type RangeSelection,
   type Spread,
 } from "lexical"
-import type { FunctionalComponent } from "vue"
+import { defineAsyncComponent, type FunctionalComponent } from "vue"
 
 export type SerializedCodeBlockNode = Spread<
   {
@@ -80,7 +79,7 @@ export class CodeBlockNode extends DecoratorBlockNode<typeof CodeBlockDecorator>
     _config: EditorConfig,
   ): Decorator<typeof CodeBlockDecorator> {
     return {
-      component: CodeBlockDecorator,
+      component: defineAsyncComponent(() => import("./components/CodeBlockDecorator.vue")),
       props: {
         nodeKey: this.__key,
         language: this.__language,

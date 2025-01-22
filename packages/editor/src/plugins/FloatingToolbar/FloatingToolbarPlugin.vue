@@ -13,7 +13,7 @@ function isBackward(anchor: Node, focus: Node, anchorOffset: number, focusOffset
 </script>
 
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
+import { useComposerContext } from "#components"
 import * as css from "./FloatingToolbar.css"
 import {
   FloatingToolbarItem,

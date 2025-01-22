@@ -1,5 +1,5 @@
 export { default as ContentEditable } from "./ContentEditable.vue"
-export { default as EditorViewport } from "./EditorViewport.vue"
+export { default as EditorViewport, getViewportElement } from "./EditorViewport.ts"
 export { default as EditorTreeView } from "./EditorTreeView.vue"
 export {
   default as EditorComposer,
@@ -7,3 +7,4 @@ export {
   type EditorComposerContextValue,
   useComposerContext,
 } from "./EditorComposer.vue"
+export { usePluginsHostContext } from "./PluginsHost.vue"

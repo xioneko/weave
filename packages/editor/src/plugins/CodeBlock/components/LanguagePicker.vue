@@ -14,8 +14,7 @@ import { Chevron } from "@weave/ui/icons"
 import { onMounted, ref, useTemplateRef } from "vue"
 import * as css from "./LanguagePicker.css"
 import { CodeLanguage } from "../extensions/languages"
-import { useComposerContext } from "#components/EditorComposer.vue"
-import { getViewportElement } from "#components/EditorViewport.vue"
+import { useComposerContext, getViewportElement } from "#components"
 
 const { languages } = defineProps<LanguagePickerProps>()
 defineOptions({ inheritAttrs: false })

@@ -1,9 +1,9 @@
 import type { EditorPlugin } from "#core/types.ts"
-import RichTextPlugin from "./RichTextPlugin.vue"
 import { $createHeadingNode, HeadingNode, type HeadingTagType } from "./nodes/HeadingNode"
 import { HorizontalRuleNode } from "./nodes/HorizontalRuleNode"
 import { QuoteNode } from "./nodes/QuoteNode"
 import { $createParagraphNode, TEXT_TYPE_TO_FORMAT } from "lexical"
+import { defineAsyncComponent } from "vue"
 
 export * from "./nodes/HeadingNode"
 export * from "./nodes/QuoteNode"
@@ -11,7 +11,7 @@ export * from "./nodes/HorizontalRuleNode"
 
 export default {
   id: "builtin:rich-text",
-  component: RichTextPlugin,
+  component: defineAsyncComponent(() => import("./RichTextPlugin.vue")),
   nodes: [HeadingNode, QuoteNode, HorizontalRuleNode],
   markdown: {
     textFormatTagMap: {

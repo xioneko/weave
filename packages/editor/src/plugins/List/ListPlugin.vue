@@ -3,14 +3,14 @@ export const CheckboxClickableAreaWidth = 24
 </script>
 
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
+import { useComposerContext } from "#components"
 import { usePluginsHostContext } from "#components/PluginsHost.vue"
 import SlashMenu, { SlashMenuPluginApi } from "#plugins/SlashMenu"
 import { getNodeKeyFromDOMNode, registerNodeElementMutationListener } from "#shared/node.ts"
 import { ListItemNode } from "./nodes"
 import { registerList } from "./registerList"
 import { mergeRegister } from "@lexical/utils"
-import { $getNodeByKey, NodeKey } from "lexical"
+import { $getNodeByKey } from "lexical"
 import { onUnmounted } from "vue"
 import { slashMenuItems } from "./slashMenuItems"
 import InputRule, { InputRulePluginApi } from "#plugins/InputRule"

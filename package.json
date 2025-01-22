@@ -6,8 +6,10 @@
   "scripts": {
     "prepare": "husky",
     "dev:editor": "pnpm -F @weave/playground dev",
+    "preview:editor": "pnpm -F @weave/playground preview",
     "dev:ui": "pnpm -F @weave/ui dev",
     "dev:desktop": "pnpm -F @weave/desktop dev",
+    "build:playground": "pnpm -F @weave/playground build",
     "lint:repo": "sherif"
   },
   "license": "MIT",
@@ -29,6 +31,7 @@
     "oxlint": "^0.14.1",
     "prettier": "3.4.2",
     "prettier-plugin-css-order": "^2.1.2",
+    "rollup-plugin-visualizer": "^5.14.0",
     "sherif": "^1.1.1",
     "type-fest": "^4.31.0",
     "typescript": "^5.7.2",

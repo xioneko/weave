@@ -4,8 +4,7 @@ const HideDelay = 500
 </script>
 
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
-import { getViewportElement } from "#components/EditorViewport.vue"
+import { useComposerContext, getViewportElement } from "#components"
 import { usePluginsHostContext } from "#components/PluginsHost.vue"
 import FloatingToolbar, { type FloatingToolbarPluginApi } from "#plugins/FloatingToolbar"
 import { getNodeKeyFromDOMNode, registerNodeElementMutationListener } from "#shared/node.ts"
@@ -17,7 +16,7 @@ import { mergeRegister } from "@lexical/utils"
 import { vDismissable, type vDismissableValue, vScrollLock, vSelect } from "@weave/ui/components"
 import * as Popper from "@weave/ui/components/Popper"
 import { Edit, Unlink, Link } from "@weave/ui/icons"
-import { $getNodeByKey, $getSelection, NodeKey } from "lexical"
+import { $getNodeByKey, $getSelection } from "lexical"
 import { onMounted, onUnmounted, ref, useTemplateRef, watch } from "vue"
 
 const { editor } = useComposerContext()

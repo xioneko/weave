@@ -21,3 +21,6 @@ target/
 .DS_Store
 *.pem
 .VSCodeCounter/
+
+# Bundle Analyzer
+stats.html

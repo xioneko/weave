@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
+import { useComposerContext } from "#components"
 import { usePluginsHostContext } from "#components/PluginsHost.vue"
 import SlashMenu, { SlashMenuPluginApi } from "#plugins/SlashMenu"
 import { getNodeKeyFromDOMNode, registerNodeElementMutationListener } from "#shared/node.ts"

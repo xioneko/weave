@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
+import { useComposerContext } from "#components"
 import { usePluginsHostContext } from "#components/PluginsHost.vue"
 import InputRule, { type InputRulePluginApi } from "#plugins/InputRule"
 import SlashMenu, { type SlashMenuPluginApi } from "#plugins/SlashMenu"

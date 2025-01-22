@@ -8,8 +8,7 @@ export const OPEN_CONTEXT_MENU_COMMAND: LexicalCommand<OpenContextMenuCommandPay
 </script>
 
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
-import { getViewportElement } from "#components/EditorViewport.vue"
+import { useComposerContext, getViewportElement } from "#components"
 import * as css from "./ContextMenu.css"
 import { ContextMenuItem, getDefaultContextMenuItems } from "./ContextMenuItem"
 import ContextMenuItems from "./ContextMenuItems.vue"

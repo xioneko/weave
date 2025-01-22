@@ -5,8 +5,7 @@ export interface SlashMenuPluginApi {
 </script>
 
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
-import { getViewportElement } from "#components/EditorViewport.vue"
+import { useComposerContext, getViewportElement } from "#components"
 import { $isElementBlock } from "#core/nodes"
 import * as css from "./SlashMenu.css"
 import { SlashMenuItem, SlashMenuIcon } from "./SlashMenuItem"
@@ -145,7 +144,7 @@ defineExpose<SlashMenuPluginApi>({
                 <span :class="['SlashMenu__item-icon', css.itemIcon]">
                   <SlashMenuIcon :component="item.icon" />
                 </span>
-                <span :class="['SlashMenu__item-title', css.itemTitle]">
+                <span :class="['SlashMenu__item-title']">
                   {{ item.title }}
                 </span>
               </AutoComplete.Item>

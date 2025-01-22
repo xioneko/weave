@@ -40,8 +40,7 @@ function computeDropIndicatorStyle(event: DragEvent, target: HTMLElement): CSSPr
 </script>
 
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
-import { getViewportElement } from "#components/EditorViewport.vue"
+import { useComposerContext, getViewportElement } from "#components"
 import {
   BaseBlockNode,
   $findClosestBlockFrom,

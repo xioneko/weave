@@ -1,5 +1,5 @@
 import type { EditorPlugin } from "#core/types.ts"
-import ContextMenuPlugin from "./ContextMenuPlugin.vue"
+import { defineAsyncComponent } from "vue"
 
 export {
   OPEN_CONTEXT_MENU_COMMAND,
@@ -8,5 +8,5 @@ export {
 
 export default {
   id: "builtin:context-menu",
-  component: ContextMenuPlugin,
+  component: defineAsyncComponent(() => import("./ContextMenuPlugin.vue")),
 } satisfies EditorPlugin

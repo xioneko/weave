@@ -14,7 +14,7 @@ interface CodeBlockDecoratorExpose {
 <script setup lang="ts">
 import { onMounted, shallowRef, useTemplateRef, watch } from "vue"
 import { EditorView, keymap, ViewUpdate } from "@codemirror/view"
-import { useComposerContext } from "#components/EditorComposer.vue"
+import { useComposerContext } from "#components"
 import { $getNodeByKey, $setSelection, SELECTION_CHANGE_COMMAND } from "lexical"
 import { CodeBlockNode } from "../CodeBlockNode"
 import LanguagePicker from "./LanguagePicker.vue"

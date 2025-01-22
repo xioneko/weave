@@ -7,7 +7,7 @@ export interface ImageBlockDecoratorProps {
 </script>
 
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
+import { useComposerContext } from "#components"
 import { SELECT_BLOCK_COMMAND } from "#core/nodes"
 import { clamp } from "#shared/utils.ts"
 import { ImageBlockNode } from "../ImageBlockNode"

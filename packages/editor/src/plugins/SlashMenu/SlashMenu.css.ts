@@ -38,5 +38,3 @@ export const itemIcon = style({
   height: "26px",
   padding: "4px",
 })
-
-export const itemTitle = style({})

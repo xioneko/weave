@@ -1,9 +1,11 @@
+/*@__NO_SIDE_EFFECTS__*/
 export function __assert__(condition: any, msg?: string): asserts condition {
   if (!condition) {
     throw new Error(`Assertion failed: ${msg ?? "..."}`)
   }
 }
 
+/*@__NO_SIDE_EFFECTS__*/
 export function __trace__(
   ctor: (new () => any) | undefined,
   fn: Function,
@@ -21,6 +23,7 @@ export function __trace__(
   }
 }
 
+/*@__NO_SIDE_EFFECTS__*/
 export function __warn__(fn?: Function, ...msgs: any[]): void {
   const funcName = fn?.name || "<anonymous>"
   // eslint-disable-next-line no-console

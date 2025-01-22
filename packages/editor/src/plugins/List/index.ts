@@ -1,6 +1,6 @@
 import type { EditorPlugin } from "#core/types.ts"
-import ListPlugin from "./ListPlugin.vue"
 import { ListItemNode, ListNode, ListParagraphNode } from "./nodes"
+import { defineAsyncComponent } from "vue"
 
 export * from "./nodes"
 
@@ -9,7 +9,7 @@ export { CheckboxClickableAreaWidth } from "./ListPlugin.vue"
 export default {
   id: "builtin:list",
   nodes: [ListNode, ListItemNode, ListParagraphNode],
-  component: ListPlugin,
+  component: defineAsyncComponent(() => import("./ListPlugin.vue")),
   markdown: {
     tokenParserMap: {
       list_item: {

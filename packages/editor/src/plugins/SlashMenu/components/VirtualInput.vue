@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useComposerContext } from "#components/EditorComposer.vue"
+import { useComposerContext } from "#components"
 import { mergeRegister } from "@lexical/utils"
 import {
   type AutoCompleteContextValue,

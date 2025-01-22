@@ -1,10 +1,10 @@
 import type { EditorPlugin } from "#core/types.ts"
 import { $createLinkNode, LinkNode } from "./LinkNode"
-import LinkPlugin from "./LinkPlugin.vue"
+import { defineAsyncComponent } from "vue"
 
 export default {
   id: "builtin:link",
-  component: LinkPlugin,
+  component: defineAsyncComponent(() => import("./LinkPlugin.vue")),
   nodes: [LinkNode],
   markdown: {
     tokenParserMap: {
