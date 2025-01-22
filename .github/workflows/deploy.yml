@@ -6,7 +6,26 @@ on:
       - main
 
 jobs:
+  changes:
+    name: Check for changes
+    runs-on: ubuntu-latest
+    outputs:
+      playground: ${{ steps.filter.outputs.playground }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            playground:
+              - 'packages/playground/**'
+              - 'packages/editor/**'
+              - 'packages/ui/**'
+              - 'vite.config.*'
+
   build:
+    needs: changes
+    if: ${{ needs.changes.outputs.playground == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
