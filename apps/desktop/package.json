@@ -1,0 +1,24 @@
+{
+  "name": "@weave/desktop",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "web:dev": "vite",
+    "web:build": "vite build",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.1.1",
+    "@tauri-apps/plugin-os": "^2.2.0",
+    "@vanilla-extract/css": "catalog:",
+    "@weave/editor": "workspace:*",
+    "@weave/ui": "workspace:*",
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.1.0"
+  }
+}

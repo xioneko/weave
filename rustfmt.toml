@@ -1,0 +1,6 @@
+tab_spaces = 2
+group_imports = "StdExternalCrate"
+imports_granularity = "Module"
+imports_layout = "HorizontalVertical"
+max_width = 100
+use_field_init_shorthand = true

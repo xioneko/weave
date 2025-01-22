@@ -1,0 +1,46 @@
+{
+  "name": "@weave/editor",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {},
+  "exports": {
+    ".": "./src/index.ts",
+    "./types": "./src/core/types.ts",
+    "./constants": "./src/core/constants.ts",
+    "./plugins/*": "./src/plugins/*/index.ts"
+  },
+  "imports": {
+    "#components": "./src/components/index.ts",
+    "#components/*": "./src/components/*",
+    "#plugins/*": "./src/plugins/*/index.ts",
+    "#core/nodes": "./src/core/nodes/index.ts",
+    "#core/markdown": "./src/core/markdown/index.ts",
+    "#core/*": "./src/core/*",
+    "#shared/*": "./src/shared/*"
+  },
+  "dependencies": {
+    "@codemirror/autocomplete": "^6.18.4",
+    "@codemirror/commands": "^6.7.1",
+    "@codemirror/language": "^6.10.7",
+    "@codemirror/language-data": "^6.5.1",
+    "@codemirror/state": "^6.5.0",
+    "@codemirror/view": "^6.36.0",
+    "@lexical/clipboard": "catalog:",
+    "@lexical/devtools-core": "catalog:",
+    "@lexical/history": "catalog:",
+    "@lexical/html": "catalog:",
+    "@lexical/text": "catalog:",
+    "@lexical/utils": "catalog:",
+    "@uiw/codemirror-theme-vscode": "^4.23.7",
+    "@vanilla-extract/css": "catalog:",
+    "@weave/ui": "workspace:*",
+    "codemirror": "^6.0.1",
+    "lexical": "catalog:",
+    "markdown-it": "^14.1.0",
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2"
+  }
+}

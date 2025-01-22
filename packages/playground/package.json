@@ -1,0 +1,16 @@
+{
+  "name": "@weave/playground",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@vanilla-extract/css": "catalog:",
+    "@weave/editor": "workspace:*",
+    "@weave/ui": "workspace:*",
+    "lexical": "catalog:",
+    "vue": "catalog:"
+  }
+}
