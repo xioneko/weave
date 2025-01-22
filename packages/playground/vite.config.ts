@@ -4,6 +4,7 @@ import type { UserConfig } from "vite"
 import { defineConfig, mergeConfig } from "vite"
 
 export default defineConfig(env => {
+  const DEV = env.mode === "development"
   return mergeConfig(baseConfig(env), {
     plugins: [
       {
@@ -11,5 +12,6 @@ export default defineConfig(env => {
         ...visualizer({ open: true }),
       },
     ],
+    base: DEV ? "/" : "/weave/",
   } satisfies UserConfig)
 })
