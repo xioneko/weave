@@ -1,7 +1,7 @@
 import type { EditorPlugin } from "#core/types.ts"
-import { defineAsyncComponent } from "vue"
+import HistoryPlugin from "./HistoryPlugin.vue"
 
 export default {
   id: "builtin:history",
-  component: defineAsyncComponent(() => import("./HistoryPlugin.vue")),
+  component: HistoryPlugin,
 } satisfies EditorPlugin

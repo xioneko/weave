@@ -1,4 +1,5 @@
 import type { EditorPlugin } from "#core/types.ts"
+import TablePlugin from "./TablePlugin.vue"
 import {
   $createTableCellNode,
   $createTableNode,
@@ -7,13 +8,12 @@ import {
   TableNode,
   TableRowNode,
 } from "./nodes"
-import { defineAsyncComponent } from "vue"
 
 export * from "./nodes"
 
 export default {
   id: "builtin:table",
-  component: defineAsyncComponent(() => import("./TablePlugin.vue")),
+  component: TablePlugin,
   nodes: [TableNode, TableRowNode, TableCellNode],
   markdown: {
     tokenParserMap: {

@@ -1,10 +1,10 @@
 import type { EditorPlugin } from "../../core/types"
-import { defineAsyncComponent } from "vue"
+import SlashMenuPlugin from "./SlashMenuPlugin.vue"
 
 export { type SlashMenuPluginApi } from "./SlashMenuPlugin.vue"
 export type { SlashMenuItem } from "./SlashMenuItem"
 
 export default {
   id: "builtin:slash-menu",
-  component: defineAsyncComponent(() => import("./SlashMenuPlugin.vue")),
+  component: SlashMenuPlugin,
 } satisfies EditorPlugin

@@ -11,6 +11,7 @@ export const tooltip = style({
   boxShadow: vars.shadow.sm,
   color: vars.colors.gray11,
   backgroundColor: vars.colors.gray2,
+  zIndex: 1,
 })
 
 export const tooltipText = style({

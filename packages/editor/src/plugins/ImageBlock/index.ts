@@ -1,13 +1,13 @@
 import type { EditorPlugin } from "#core/types.ts"
 import { $createImageBlockNode, ImageBlockNode } from "./ImageBlockNode"
-import { defineAsyncComponent } from "vue"
+import ImageBlockPlugin from "./ImageBlockPlugin.vue"
 
 export * from "./ImageBlockNode"
 
 export default {
   id: "builtin:image-block",
   nodes: [ImageBlockNode],
-  component: defineAsyncComponent(() => import("./ImageBlockPlugin.vue")),
+  component: ImageBlockPlugin,
   markdown: {
     tokenParserMap: {
       image: {

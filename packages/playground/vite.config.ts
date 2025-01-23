@@ -13,5 +13,33 @@ export default defineConfig(env => {
       },
     ],
     base: DEV ? "/" : "/weave/",
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (/@codemirror\/(view|state)/.test(id)) {
+              return "codemirror"
+            } else if (id.includes("@codemirror/language")) {
+              return "codemirror-language"
+            } else if (id.includes("@codemirror/commands")) {
+              return "codemirror-commands"
+            } else if (id.includes("@codemirror/autocomplete")) {
+              return "codemirror-autocomplete"
+            } else if (id.includes("markdown-it")) {
+              return "markdown-it"
+            } else if (id.includes("lexical")) {
+              return "lexical"
+            } else if (id.includes("@vue")) {
+              return "vue"
+            } else {
+              const plugin = id.match(/editor\/plugins\/([^/]+)/)
+              if (plugin) {
+                return `editor-plugin-${plugin[1]}`
+              }
+            }
+          },
+        },
+      },
+    },
   } satisfies UserConfig)
 })
