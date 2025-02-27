@@ -22,6 +22,7 @@ import {
   $isNodeSelection,
   $isParagraphNode,
   $isRangeSelection,
+  $isRootNode,
   $isTextNode,
   $normalizeSelection__EXPERIMENTAL,
   $setSelection,
@@ -288,9 +289,14 @@ export function registerRichText(editor: LexicalEditor) {
                   selection.focus.set(node.__key, caret.offset, "text")
                 } else {
                   const parent = node.getParentOrThrow()
-                  const offset = node.getIndexWithinParent() + 1
-                  selection.anchor.set(parent.__key, offset, "element")
-                  selection.focus.set(parent.__key, offset, "element")
+                  if ($isRootNode(parent)) {
+                    selection.anchor.set(node.__key, 0, "element")
+                    selection.focus.set(node.__key, 0, "element")
+                  } else {
+                    const offset = node.getIndexWithinParent() + 1
+                    selection.anchor.set(parent.__key, offset, "element")
+                    selection.focus.set(parent.__key, offset, "element")
+                  }
                 }
                 $setSelection($normalizeSelection__EXPERIMENTAL(selection))
               }
