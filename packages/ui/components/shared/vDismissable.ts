@@ -52,8 +52,6 @@ export const vDismissable: ObjectDirective<HTMLElement, vDismissableValue> = {
         layers.findLast(layer => layer.element === element || layer.isolated)?.element === element,
     )
 
-    // TODO: Consider the blur event
-
     const __stop1 = watch(
       noIsolationAboveCurrentLayer,
       (so, _, onCleanup) => {
