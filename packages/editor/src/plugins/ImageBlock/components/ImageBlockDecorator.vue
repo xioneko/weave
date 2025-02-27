@@ -48,7 +48,7 @@ const handleRootPointerUp = (event: PointerEvent) => {
   }
 }
 
-const handleImagePointerUp = () => {
+const handleImageClick = () => {
   const imgBlockNode = editor.read(() => $getNodeByKey<ImageBlockNode>(nodeKey))!
   editor.dispatchCommand(SELECT_BLOCK_COMMAND, { node: imgBlockNode })
 }
@@ -121,7 +121,7 @@ const handleDragStart = (event: DragEvent) => {
           WebkitUserSelect: 'none',
           userSelect: 'none',
         }"
-        @pointerup="handleImagePointerUp"
+        @click="handleImageClick"
         @dragstart="handleDragStart"
       />
       <div
