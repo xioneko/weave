@@ -27,8 +27,8 @@ export const content = style({
 export const item = style({
   padding: "4px",
   cursor: "pointer",
-  userSelect: "none",
   WebkitUserSelect: "none",
+  userSelect: "none",
   height: "32px",
   display: "flex",
   alignItems: "center",

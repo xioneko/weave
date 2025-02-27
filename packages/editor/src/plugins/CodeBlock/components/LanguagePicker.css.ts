@@ -14,8 +14,8 @@ export const trigger = style({
   borderRadius: vars.rounded.sm,
   color: vars.colors.grayA9,
   fontSize: vars.text.xs,
-  userSelect: "none",
   WebkitUserSelect: "none",
+  userSelect: "none",
   cursor: "pointer",
   selectors: {
     "&:hover": {

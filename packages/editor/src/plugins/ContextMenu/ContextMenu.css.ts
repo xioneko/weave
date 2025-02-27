@@ -25,8 +25,8 @@ export const item = style({
   borderRadius: vars.rounded.md,
   cursor: "pointer",
   outline: "none",
-  userSelect: "none",
   WebkitUserSelect: "none",
+  userSelect: "none",
   selectors: {
     "&[data-highlighted]": {
       backgroundColor: vars.colors.gray4,

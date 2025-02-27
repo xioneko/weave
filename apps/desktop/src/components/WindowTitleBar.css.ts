@@ -15,6 +15,6 @@ export const titleBar = style({
   height: "var(--title-bar-frame-height)",
   width: "100%",
   overflow: "hidden",
-  userSelect: "none",
   WebkitUserSelect: "none",
+  userSelect: "none",
 })

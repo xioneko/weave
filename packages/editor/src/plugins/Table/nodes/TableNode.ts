@@ -158,8 +158,8 @@ export class TableNode extends ElementBlockNode {
     resizer.contentEditable = "false"
     table.contentEditable = "true"
     container.contentEditable = "false"
-    container.style.userSelect = "none"
     container.style.webkitUserSelect = "none"
+    container.style.userSelect = "none"
 
     container.append(table)
     container.append(resizer)

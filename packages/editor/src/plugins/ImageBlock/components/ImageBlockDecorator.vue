@@ -118,8 +118,8 @@ const handleDragStart = (event: DragEvent) => {
         :style="{
           width: width ? `${width}px` : 'auto',
           maxWidth: '100%',
-          userSelect: 'none',
           WebkitUserSelect: 'none',
+          userSelect: 'none',
         }"
         @pointerup="handleImagePointerUp"
         @dragstart="handleDragStart"

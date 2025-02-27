@@ -140,8 +140,8 @@ export const tooltip = style({
   backgroundColor: vars.colors.gray3,
   padding: "4px 8px",
   borderRadius: vars.rounded.md,
-  userSelect: "none",
   WebkitUserSelect: "none",
+  userSelect: "none",
   pointerEvents: "none",
 })
 
