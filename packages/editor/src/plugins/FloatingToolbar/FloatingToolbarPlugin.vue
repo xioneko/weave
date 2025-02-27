@@ -95,8 +95,8 @@ function tryShowToolbar() {
   const selectedText = domSelection.toString()
   if (/^[\n\r]*$/.test(selectedText)) return
 
-  const isSingleLine = !selectedText.includes("\n")
-  if (isSingleLine) {
+  const isSingleParagraph = !selectedText.includes("\n")
+  if (isSingleParagraph) {
     popperAnchor.value = domSelection.getRangeAt(0).getBoundingClientRect()
     popperSide = "top"
     showToolbar.value = true
@@ -107,32 +107,33 @@ function tryShowToolbar() {
   const focus = domSelection.focusNode
   if (!anchor || !focus) return
 
+  const range = new Range()
   const backward = domSelection.direction
     ? domSelection.direction === "backward"
     : isBackward(anchor, focus, domSelection.anchorOffset, domSelection.focusOffset)
   if (backward) {
-    const range = new Range()
     if (focus.nodeType === Node.TEXT_NODE) {
       range.setStart(focus, Math.max(domSelection.focusOffset - 1, 0))
       range.setEndAfter(focus)
     } else {
       range.selectNodeContents(focus)
     }
-    popperAnchor.value = range.getBoundingClientRect()
     popperSide = "top"
-    showToolbar.value = true
   } else {
-    const range = new Range()
     if (focus.nodeType === Node.TEXT_NODE) {
       range.setStartBefore(focus)
       range.setEnd(focus, Math.min(domSelection.focusOffset + 1, focus.textContent?.length ?? 0))
     } else {
       range.selectNodeContents(focus)
     }
-    popperAnchor.value = range.getBoundingClientRect()
     popperSide = "bottom"
-    showToolbar.value = true
   }
+  const rect = range.getBoundingClientRect()
+  popperAnchor.value =
+    rect.x === 0 && rect.y === 0
+      ? domSelection.getRangeAt(0).getBoundingClientRect() // fallback
+      : range.getBoundingClientRect()
+  showToolbar.value = true
 }
 
 const handleDismiss: vDismissableValue = {
