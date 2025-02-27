@@ -1,10 +1,22 @@
 import baseConfig from "../../vite.config"
+import fs from "node:fs"
 import { visualizer } from "rollup-plugin-visualizer"
 import type { UserConfig } from "vite"
 import { defineConfig, mergeConfig } from "vite"
 
 export default defineConfig(env => {
   const DEV = env.mode === "development"
+
+  if (!DEV) {
+    const introPath = "./src/assets/introduction.json"
+    const intro = fs
+      .readFileSync(introPath, "utf-8")
+      // Change the base URL for the image
+      .replace(/\/.*.png/g, "/weave$&")
+    const minified = JSON.stringify(JSON.parse(intro))
+    fs.writeFileSync(introPath, minified)
+  }
+
   return mergeConfig(baseConfig(env), {
     plugins: [
       {

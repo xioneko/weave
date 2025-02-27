@@ -6,7 +6,7 @@ export const AppContext = Symbol("AppContext") as InjectionKey<AppContextValue>
 </script>
 
 <script setup lang="ts">
-import introducing from "./assets/Introducing.json?raw"
+import introduction from "./assets/introduction.json?raw"
 import EditorActions from "./components/EditorActions.vue"
 import GitHubCorner from "./components/GitHubCorner.vue"
 import ThemeToggle from "./components/ThemeToggle.vue"
@@ -31,7 +31,7 @@ const actions = useTemplateRef("actionsKey")
 const editor = shallowRef<LexicalEditor | null>(null)
 const showTreeView = ref(localStorage.getItem("showTreeView") === "true")
 const urlHash = window.location.hash
-const initialEditorState = urlHash.startsWith("#doc=") ? undefined : introducing
+const initialEditorState = urlHash.startsWith("#doc=") ? undefined : introduction
 
 const showToast = createToast({
   className: css.toast,
