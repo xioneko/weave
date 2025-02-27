@@ -170,7 +170,7 @@ export function $insertAsInlines(
   selection.removeText()
   let node = selection.anchor.getNode()
   let offset = selection.anchor.offset
-  while (node !== parent) {
+  while (node.__key !== parent.__key) {
     ;[node, offset] = $splitNodeAtPoint(node, offset)
   }
   const afterNode = parent.getChildAtIndex(offset)

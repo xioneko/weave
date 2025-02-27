@@ -164,7 +164,10 @@ export function registerTable(editor: LexicalEditor) {
 
         if (!selection.isCollapsed()) {
           const focusCell = $getBlockElementNodeAtPoint(selection.focus)
-          if (focusCell?.is(anchorCell)) return false
+          if (focusCell?.is(anchorCell)) {
+            $insertAsInlines(selection, anchorCell, nodes)
+            return true
+          }
         }
 
         const isSingleTable = nodes.length === 1 && $isTableNode(nodes[0])
