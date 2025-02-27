@@ -248,7 +248,8 @@ export class ListItemNode extends ElementBlockNode {
   }
 
   override exportMarkdown: NodeMarkdownSerializer = (_exportChildren, exportNode): string => {
-    const indentation = "  ".repeat(this.getIndent())
+    const indentLevel = this.getIndent()
+    const indentation = "    ".repeat(indentLevel)
     let prefix: string
     if (this.__value !== undefined) {
       prefix = `${this.__value}.`
@@ -262,7 +263,7 @@ export class ListItemNode extends ElementBlockNode {
     if (!paragraph) return `${indentation}${prefix} \n`
 
     let output = exportNode(paragraph) + "\n\n"
-    const childIndentation = indentation + "  "
+    const childIndentation = "    ".repeat(indentLevel + 1)
     for (let i = 0; i < children.length; i++) {
       const child = children[i]
       if ($isListNode(child)) {
