@@ -160,7 +160,7 @@
             "format": 0,
             "mode": "normal",
             "style": "",
-            "text": "Create a heading by starting a line with 1~6 ",
+            "text": "Use 1~6 ",
             "type": "text",
             "version": 1
           },
@@ -178,7 +178,7 @@
             "format": 0,
             "mode": "normal",
             "style": "",
-            "text": " symbols.",
+            "text": " symbols followed by a space to create a heading.",
             "type": "text",
             "version": 1
           }
@@ -230,10 +230,7 @@
         "version": 1,
         "tag": "h4"
       },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -241,7 +238,7 @@
             "format": 0,
             "mode": "normal",
             "style": "",
-            "text": "To create a blockquote, add a ",
+            "text": "Use ",
             "type": "text",
             "version": 1
           },
@@ -259,7 +256,7 @@
             "format": 0,
             "mode": "normal",
             "style": "",
-            "text": " in front of a paragraph.",
+            "text": " followed by a space to create a blockquote.",
             "type": "text",
             "version": 1
           }
@@ -310,10 +307,7 @@
         "type": "quote",
         "version": 1
       },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -372,10 +366,7 @@
         "textFormat": 16,
         "textStyle": ""
       },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -434,10 +425,7 @@
         "textFormat": 1,
         "textStyle": ""
       },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -458,11 +446,7 @@
         "textFormat": 0,
         "textStyle": ""
       },
-      {
-        "type": "code-block",
-        "code": "",
-        "version": 1
-      },
+      { "type": "code-block", "code": "", "version": 1 },
       {
         "children": [
           {
@@ -509,10 +493,7 @@
         "code": "function test(x: number): void {\n  console.log(\"This value of x is\", x)\n}",
         "version": 1
       },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -995,10 +976,7 @@
         "start": 1,
         "tag": "ol"
       },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -1548,10 +1526,7 @@
         "columnWidths": [138, 132, 150, 136, 136, 124, 130],
         "scrollable": true
       },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -1591,12 +1566,7 @@
         "textFormat": 0,
         "textStyle": ""
       },
-      {
-        "type": "image-block",
-        "version": 1,
-        "src": "/image.png",
-        "width": 716
-      },
+      { "type": "image-block", "version": 1, "src": "/image.png", "width": 716 },
       {
         "children": [
           {
@@ -1617,10 +1587,7 @@
         "textFormat": 0,
         "textStyle": ""
       },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -1660,16 +1627,8 @@
         "textFormat": 0,
         "textStyle": ""
       },
-      {
-        "type": "image-block",
-        "version": 1,
-        "src": "/floating-toolbar.png",
-        "width": 740
-      },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "image-block", "version": 1, "src": "/floating-toolbar.png", "width": 740 },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -1709,15 +1668,8 @@
         "textFormat": 0,
         "textStyle": ""
       },
-      {
-        "type": "image-block",
-        "version": 1,
-        "src": "/slash-menu.png"
-      },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "image-block", "version": 1, "src": "/slash-menu.png" },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -1757,15 +1709,8 @@
         "textFormat": 0,
         "textStyle": ""
       },
-      {
-        "type": "image-block",
-        "version": 1,
-        "src": "/context-menu.png"
-      },
-      {
-        "type": "horizontal-rule",
-        "version": 1
-      },
+      { "type": "image-block", "version": 1, "src": "/context-menu.png" },
+      { "type": "horizontal-rule", "version": 1 },
       {
         "children": [
           {
@@ -1819,14 +1764,14 @@
                     "version": 1
                   }
                 ],
-                "direction": "ltr",
+                "direction": null,
                 "format": "",
                 "indent": 0,
                 "type": "list-paragraph",
                 "version": 1
               }
             ],
-            "direction": "ltr",
+            "direction": null,
             "format": "",
             "indent": 0,
             "type": "listitem",
@@ -1864,14 +1809,14 @@
                     "version": 1
                   }
                 ],
-                "direction": "ltr",
+                "direction": null,
                 "format": "",
                 "indent": 0,
                 "type": "list-paragraph",
                 "version": 1
               }
             ],
-            "direction": "ltr",
+            "direction": null,
             "format": "",
             "indent": 0,
             "type": "listitem",
@@ -1905,7 +1850,7 @@
             "version": 1
           }
         ],
-        "direction": "ltr",
+        "direction": null,
         "format": "",
         "indent": 0,
         "type": "list",

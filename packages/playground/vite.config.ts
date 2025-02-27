@@ -9,12 +9,9 @@ export default defineConfig(env => {
 
   if (!DEV) {
     const introPath = "./src/assets/introduction.json"
-    const intro = fs
-      .readFileSync(introPath, "utf-8")
-      // Change the base URL for the image
-      .replace(/\/.*.png/g, "/weave$&")
-    const minified = JSON.stringify(JSON.parse(intro))
-    fs.writeFileSync(introPath, minified)
+    const intro = fs.readFileSync(introPath, "utf-8")
+    // Minify the introduction JSON
+    fs.writeFileSync(introPath, JSON.stringify(JSON.parse(intro)))
   }
 
   return mergeConfig(baseConfig(env), {

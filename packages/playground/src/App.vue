@@ -31,8 +31,11 @@ const actions = useTemplateRef("actionsKey")
 const editor = shallowRef<LexicalEditor | null>(null)
 const showTreeView = ref(localStorage.getItem("showTreeView") === "true")
 const urlHash = window.location.hash
-const initialEditorState = urlHash.startsWith("#doc=") ? undefined : introduction
-
+const initialEditorState = urlHash.startsWith("#doc=")
+  ? undefined
+  : import.meta.env.DEV
+    ? introduction
+    : introduction.replace(/"\/(.*?\.png)"/g, '"/weave/$1"')
 const showToast = createToast({
   className: css.toast,
   spaceWithHeight: 48,
