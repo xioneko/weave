@@ -136,7 +136,7 @@ export function registerNodeElementMutationListener(
       if (mutation !== "destroyed") {
         const element = editor.getElementByKey(nodeKey)!
         const registered = elementsMap.get(nodeKey)
-        if (registered !== element) {
+        if (element && registered !== element) {
           if (registered) listener({ nodeKey, type: "destroyed" })
           elementsMap.set(nodeKey, element)
           listener({ nodeKey, type: "created", element })

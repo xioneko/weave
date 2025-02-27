@@ -43,8 +43,9 @@ export class DecoratorNode<
 
   override createDOM(_config: EditorConfig, editor: LexicalEditor, tag?: string): HTMLElement {
     const dom = document.createElement(tag ?? "div")
+    const key = editor.getKey()
     // @ts-expect-error
-    dom[`__decorator_${editor._key}`] = true
+    dom[`__decorator_${key}`] = true
 
     // If the DOM is recreated, the decorator should be recreated as well
     if (this.__decorator) this.__decorator.dirty = true
@@ -92,7 +93,9 @@ export class DecoratorNode<
         }),
       )
       const component = () => h(decorator.component, props)
-      this.getWritable().__decorator = { component, props, instance: null, dirty: false }
+      editor.update(() => {
+        this.getWritable().__decorator = { component, props, instance: null, dirty: false }
+      })
       return component
     }
   }

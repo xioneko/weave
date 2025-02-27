@@ -39,8 +39,9 @@ export function $isElementBlock(node: LexicalNode | null | undefined): node is E
 }
 
 export function normalizeBlockDOM(dom: HTMLElement, editor: LexicalEditor): HTMLElement {
+  const key = editor.getKey()
   // @ts-expect-error
-  dom[`__block_${editor._key}`] = true
+  dom[`__block_${key}`] = true
   dom.setAttribute("data-block", "")
   return dom
 }
