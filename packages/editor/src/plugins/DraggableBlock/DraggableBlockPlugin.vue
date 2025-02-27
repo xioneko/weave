@@ -7,36 +7,6 @@ type BlockDNDTarget = {
 function getDropIntent(event: DragEvent, domRect: DOMRect): "above" | "below" {
   return event.clientY < domRect.top + domRect.height / 2 ? "above" : "below"
 }
-
-function computeDropIndicatorStyle(event: DragEvent, target: HTMLElement): CSSProperties {
-  const rect = target.getBoundingClientRect()
-  const isAbove = getDropIntent(event, rect) === "above"
-  // indentation -> "padding-inline-start": "calc(xxx)",
-  const indentation = parseFloat(target.style.paddingInlineStart.slice(5) || "0")
-  let y: number
-  if (isAbove) {
-    const sibling = target.previousElementSibling
-    if (sibling) {
-      const siblingRect = sibling.getBoundingClientRect()
-      y = (siblingRect.bottom + rect.top) / 2
-    } else {
-      y = rect.top
-    }
-  } else {
-    const sibling = target.nextElementSibling
-    if (sibling) {
-      const siblingRect = sibling.getBoundingClientRect()
-      y = (siblingRect.top + rect.bottom) / 2
-    } else {
-      y = rect.bottom
-    }
-  }
-  return {
-    top: `${y}px`,
-    left: `${rect.left + indentation}px`,
-    width: `${rect.width - indentation}px`,
-  }
-}
 </script>
 
 <script setup lang="ts">
@@ -81,6 +51,53 @@ let rootElement: HTMLElement
 let viewportElement: HTMLElement
 const DragIndicatorHeight = 20
 
+function getDNDTarget(event: MouseEvent): BlockDNDTarget | null {
+  const rootElementStyle = window.getComputedStyle(rootElement)
+  const x =
+    rootElement.getBoundingClientRect().right -
+    parseInt(rootElementStyle.borderRight || "0") -
+    parseInt(rootElementStyle.paddingRight || "0") -
+    5
+  const element = document.elementFromPoint(x, event.clientY) as HTMLElement
+  if (element) {
+    const target = editor.read(() => $findClosestBlockFrom(element))
+    if (target) return { block: target.node, dom: target.element }
+  }
+  return null
+}
+
+function computeDropIndicatorStyle(event: DragEvent, target: HTMLElement): CSSProperties {
+  const rect = target.getBoundingClientRect()
+  const viewportRect = viewportElement.getBoundingClientRect()
+  const isAbove = getDropIntent(event, rect) === "above"
+  // indentation -> "padding-inline-start": "calc(xxx)",
+  const indentation = parseFloat(target.style.paddingInlineStart.slice(5) || "0")
+
+  let y: number = viewportElement.scrollTop - viewportRect.y
+  if (isAbove) {
+    const sibling = target.previousElementSibling
+    if (sibling) {
+      const siblingRect = sibling.getBoundingClientRect()
+      y += (siblingRect.bottom + rect.top) / 2
+    } else {
+      y += rect.top
+    }
+  } else {
+    const sibling = target.nextElementSibling
+    if (sibling) {
+      const siblingRect = sibling.getBoundingClientRect()
+      y += (siblingRect.top + rect.bottom) / 2
+    } else {
+      y += rect.bottom
+    }
+  }
+
+  return {
+    transform: `translate(${rect.left + indentation - viewportRect.x}px, ${y}px)`,
+    width: `${rect.width - indentation}px`,
+  }
+}
+
 watch(dragTarget, block => {
   if (!block || isDragging.value) return
 
@@ -106,21 +123,6 @@ watch(dragTarget, block => {
 
   dragHandleTransform.value = `translate(${x - 24}px, ${y}px)`
 })
-
-function getDNDTarget(event: MouseEvent): BlockDNDTarget | null {
-  const rootElementStyle = window.getComputedStyle(rootElement)
-  const x =
-    rootElement.getBoundingClientRect().right -
-    parseInt(rootElementStyle.borderRight) -
-    parseInt(rootElementStyle.paddingRight) -
-    5
-  const element = document.elementFromPoint(x, event.clientY) as HTMLElement
-  if (element) {
-    const target = editor.read(() => $findClosestBlockFrom(element))
-    if (target) return { block: target.node, dom: target.element }
-  }
-  return null
-}
 
 onMounted(() => {
   rootElement = editor.getRootElement()!
@@ -152,7 +154,7 @@ onUnmounted(
 
         const dropIndicator = dropIndicatorRef.value!
         // Avoid flickering, this value should be reset by `computeDropIndicatorStyle`
-        dropIndicator!.style.left = "-9999px"
+        dropIndicator!.style.transform = "translateX(-9999px)"
 
         const handleDragOver = (event: DragEvent) => {
           event.preventDefault()

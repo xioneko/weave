@@ -26,7 +26,9 @@ export const dragIndicator = style({
 })
 
 export const dropIndicator = style({
-  position: "fixed",
+  position: "absolute",
+  top: 0,
+  left: 0,
   height: "2px",
   backgroundColor: vars.colors.blue7,
   pointerEvents: "none",
